@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  
+  <head> 
+   <link rel="stylesheet" href="style.css">
+<img src="apple.jpg" alt="Description of the image" id="apple">
+<img src="apple2.jpg" alt="Description of the image" id="apple2">
+<img src="apple3.jpg" alt="Description of the image" id="apple3"> 
+<img src="apple4.jpg" alt="Description of the image" id="apple4">
+    <img src="coolcat.jpg" alt="Description of the image" class="moving image" id="coolcat">
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Neonderthaw&family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+     
+<div class="container" id="h1" >
+    <h1>PHOTO BOOTH</h1>
+    <button> Access Camera</button>
+  </div>
+
+    
+
+<div id="pb_container">
+ <video autoplay="true" id="videoElement">
+    </video>
+</div>
+<!-- JAVASCRIPT IS THIS: (just in the html file) -->
+<script>
+    let video = document.querySelector ("#videoElement");
+    if (navigator.mediaDevices.getUserMedia) {
+        navigator.mediaDevices.getUserMedia({video: true})
+        .then (function (stream){
+          video.srcObject= stream;
+        })
+        .catch (function (error) {
+          onsole.log("somethings wrong");
+        })
+               
+      } else {
+        console.log("getUserMedia not Supported")
+      }
+
+      
+    </script>
+<!-- JS ends -->
+  
+  
+  </body>
+
+  
+</html>
